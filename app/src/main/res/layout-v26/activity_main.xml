@@ -105,10 +105,10 @@
                 android:id="@+id/textView3"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginLeft="20dp"
+                android:layout_marginStart="20dp"
                 android:layout_marginTop="10dp"
                 android:layout_marginBottom="5dp"
-                android:text="Physician Sample"
+                android:text="@string/physician_sample"
                 android:textColor="@android:color/black"
                 android:textSize="18sp" />
 
@@ -123,8 +123,8 @@
                     android:id="@+id/physicianSpinner"
                     android:layout_width="match_parent"
                     android:layout_height="50dp"
-                    android:layout_marginLeft="10dp"
-                    android:layout_marginRight="5dp"
+                    android:layout_marginStart="10dp"
+                    android:layout_marginEnd="5dp"
                     android:layout_weight="1"
                     android:background="@drawable/spinner"
                     android:spinnerMode="dropdown"/>
@@ -139,19 +139,20 @@
                     android:background="@drawable/numberbox"
                     android:ems="10"
                     android:gravity="center"
-                    android:hint="00"
+                    android:hint="@string/_00"
                     android:inputType="numberDecimal"
-                    android:textColor="@color/colorPrimary" />
+                    android:textColor="@color/colorPrimary"
+                    android:autofillHints="" />
             </LinearLayout>
 
             <TextView
                 android:id="@+id/textView4"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginLeft="20dp"
+                android:layout_marginStart="20dp"
                 android:layout_marginTop="10dp"
                 android:layout_marginBottom="5dp"
-                android:text="Gift"
+                android:text="@string/gift"
                 android:textColor="@android:color/black"
                 android:textSize="18sp" />
 
@@ -167,8 +168,8 @@
                     android:id="@+id/giftSpinner"
                     android:layout_width="match_parent"
                     android:layout_height="50dp"
-                    android:layout_marginLeft="10dp"
-                    android:layout_marginRight="5dp"
+                    android:layout_marginStart="10dp"
+                    android:layout_marginEnd="5dp"
                     android:layout_weight="1"
 
                     android:background="@drawable/spinner"
@@ -179,15 +180,16 @@
                     android:id="@+id/giftCountET"
                     android:layout_width="wrap_content"
                     android:layout_height="50dp"
-                    android:layout_marginRight="10dp"
+                    android:layout_marginEnd="10dp"
                     android:layout_marginBottom="5dp"
                     android:layout_weight="1"
                     android:background="@drawable/numberbox"
                     android:ems="10"
                     android:gravity="center"
-                    android:hint="00"
+                    android:hint="@string/_00"
                     android:inputType="numberDecimal"
-                    android:textColor="@color/colorPrimary" />
+                    android:textColor="@color/colorPrimary"
+                    android:autofillHints="" />
             </LinearLayout>
 
             <View
@@ -200,10 +202,10 @@
                 android:id="@+id/textView5"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginLeft="20dp"
+                android:layout_marginStart="20dp"
                 android:layout_marginTop="20dp"
                 android:layout_marginBottom="5dp"
-                android:text="Accompanied with"
+                android:text="@string/accompanied_with"
                 android:textColor="@android:color/black"
                 android:textSize="18sp" />
 
@@ -214,18 +216,19 @@
                 android:layout_marginLeft="10dp"
                 android:layout_marginRight="10dp"
                 android:ems="10"
-                android:hint="Input text"
+                android:hint="@string/input_text"
                 android:inputType="textPersonName"
-                android:textColor="@color/colorPrimary" />
+                android:textColor="@color/colorPrimary"
+                android:autofillHints="" />
 
             <TextView
                 android:id="@+id/textView6"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginLeft="20dp"
+                android:layout_marginStart="20dp"
                 android:layout_marginTop="10dp"
                 android:layout_marginBottom="5dp"
-                android:text="Remarks"
+                android:text="@string/remarks"
                 android:textColor="@android:color/black"
                 android:textSize="18sp" />
 
@@ -236,9 +239,10 @@
                 android:layout_marginLeft="10dp"
                 android:layout_marginRight="10dp"
                 android:ems="10"
-                android:hint="Input text"
+                android:hint="@string/input_text"
                 android:inputType="textMultiLine"
-                android:textColor="@color/colorPrimary" />
+                android:textColor="@color/colorPrimary"
+                android:autofillHints="" />
 
             <Button
                 android:id="@+id/submit"
@@ -247,10 +251,10 @@
                 android:layout_height="wrap_content"
                 android:layout_gravity="right"
                 android:layout_marginTop="10dp"
-                android:layout_marginRight="20dp"
+                android:layout_marginEnd="20dp"
                 android:layout_marginBottom="50dp"
                 android:background="@color/colorPrimary"
-                android:text="SUBMIT"
+                android:text="@string/submit"
                 android:textColor="@color/colorPrimaryDark" />
 
         </LinearLayout>
