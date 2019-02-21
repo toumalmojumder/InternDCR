@@ -5,7 +5,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/colorPrimaryDark"
+
     tools:context=".MainActivity">
 
     <ScrollView
@@ -41,6 +41,7 @@
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="20dp"
                 android:layout_marginTop="20dp"
+                android:layout_marginBottom="5dp"
                 android:text="Product Group"
                 android:textColor="@android:color/black"
                 android:textSize="18sp" />
@@ -48,9 +49,12 @@
             <Spinner
                 android:id="@+id/productGroupSpinner"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
+                android:layout_height="50dp"
                 android:layout_marginLeft="10dp"
-                android:layout_marginRight="10dp" />
+                android:layout_marginRight="10dp"
+                android:background="@drawable/spinner"
+                android:spinnerMode="dropdown"
+                 />
 
             <TextView
                 android:id="@+id/textView2"
@@ -58,6 +62,7 @@
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="20dp"
                 android:layout_marginTop="20dp"
+                android:layout_marginBottom="5dp"
                 android:text="Literature"
                 android:textColor="@android:color/black"
                 android:textSize="18sp" />
@@ -70,9 +75,11 @@
                 <Spinner
                     android:id="@+id/literatureSpinner"
                     android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
+                    android:layout_height="50dp"
                     android:layout_marginLeft="10dp"
                     android:layout_marginRight="5dp"
+                    android:background="@drawable/spinner"
+                    android:spinnerMode="dropdown"
 
                     android:layout_weight="1" />
 
@@ -93,6 +100,8 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="20dp"
+                android:layout_marginTop="10dp"
+                android:layout_marginBottom="5dp"
                 android:text="Physician Sample"
                 android:textColor="@android:color/black"
                 android:textSize="18sp" />
@@ -105,10 +114,12 @@
                 <Spinner
                     android:id="@+id/physicianSpinner"
                     android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
+                    android:layout_height="50dp"
                     android:layout_marginLeft="10dp"
                     android:layout_marginRight="5dp"
-                    android:layout_weight="1" />
+                    android:layout_weight="1"
+                    android:background="@drawable/spinner"
+                    android:spinnerMode="dropdown"/>
 
                 <EditText
                     android:id="@+id/physicianCountET"
@@ -127,6 +138,8 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="20dp"
+                android:layout_marginTop="10dp"
+                android:layout_marginBottom="5dp"
                 android:text="Gift"
                 android:textColor="@android:color/black"
                 android:textSize="18sp" />
@@ -134,15 +147,20 @@
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:orientation="horizontal">
+                android:orientation="horizontal"
+                >
 
                 <Spinner
                     android:id="@+id/giftSpinner"
                     android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
+                    android:layout_height="50dp"
                     android:layout_marginLeft="10dp"
                     android:layout_marginRight="5dp"
-                    android:layout_weight="1" />
+                    android:layout_weight="1"
+                    android:textColor="#000000"
+                    android:background="@drawable/spinner"
+                    android:spinnerMode="dropdown"
+                    />
 
                 <EditText
                     android:id="@+id/giftCountET"
@@ -168,6 +186,7 @@
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="20dp"
                 android:layout_marginTop="20dp"
+                android:layout_marginBottom="5dp"
                 android:text="Accompanied with"
                 android:textColor="@android:color/black"
                 android:textSize="18sp" />
@@ -189,6 +208,7 @@
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="20dp"
                 android:layout_marginTop="10dp"
+                android:layout_marginBottom="5dp"
                 android:text="Remarks"
                 android:textColor="@android:color/black"
                 android:textSize="18sp" />
@@ -212,6 +232,7 @@
                 android:layout_gravity="right"
                 android:layout_marginTop="10dp"
                 android:layout_marginRight="20dp"
+                android:layout_marginBottom="50dp"
                 android:background="@android:color/holo_blue_light"
                 android:text="SUBMIT"
                 android:textColor="@color/colorPrimaryDark" />
