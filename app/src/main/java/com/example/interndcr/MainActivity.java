@@ -36,39 +36,41 @@ import java.util.ArrayList;
 import java.util.HashMap;
 
 public class MainActivity extends AppCompatActivity{
-
+    //Button variable declare
     private Button submit;
-    public static TextView test;
-    private RequestQueue requestQueue;
-     public Spinner productGroupSpinner;
-     public Spinner literatureSpinner;
-     public Spinner physicianSpinner;
-     public Spinner giftSpinner;
 
-    private String jsonURL = "https://raw.githubusercontent.com/appinion-dev/intern-dcr-data/master/data.json";
+   //spinner variable declare
+    public Spinner productGroupSpinner;
+    public Spinner literatureSpinner;
+    public Spinner physicianSpinner;
+    public Spinner giftSpinner;
+
     private final int jsoncode = 1;
     private static ProgressDialog mProgressDialog;
     private ArrayList<ModelData> modelDataArrayList;
+
+    //spinner item variable to hold json value
     private ArrayList<String> product_group = new ArrayList<String>();
     private ArrayList<String> literature = new ArrayList<String>();
     private ArrayList<String> sample = new ArrayList<String>();
     private ArrayList<String> gift = new ArrayList<String>();
-    //private Spinner spinner;
-   // ArrayList<ModelData> tennisModelArrayList = new ArrayList<>();
-   // String response2 = "";
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
 
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-        requestQueue = Volley.newRequestQueue(this);
+
+        //spinner variable pointing
         productGroupSpinner = findViewById(R.id.productGroupSpinner);
         literatureSpinner = findViewById(R.id.literatureSpinner);
         physicianSpinner = findViewById(R.id.physicianSpinner);
         giftSpinner = findViewById(R.id.giftSpinner);
+
+        //loadJSON() called to get json data as String
         loadJSON();
         submit = findViewById(R.id.submit);
-        test = findViewById(R.id.remarkET);
+
         submit.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -103,8 +105,9 @@ public class MainActivity extends AppCompatActivity{
                     e.printStackTrace();
                 }
                 Log.d("data",data);
+                //full json data get and send as String
                 return data;
-            }
+            }//loadJSON function ended
 
             protected void onPostExecute(String result) {
                 //do something with response
@@ -114,7 +117,7 @@ public class MainActivity extends AppCompatActivity{
         }.execute();
     }
     public void onTaskCompleted(String response, int serviceCode) {
-        Log.d("responsejson", response.toString());
+        Log.d("responsejson", response);
         switch (serviceCode) {
             case jsoncode:
 
@@ -122,15 +125,15 @@ public class MainActivity extends AppCompatActivity{
                     removeSimpleProgressDialog();  //will remove progress dialog
 
                     modelDataArrayList = parseInfo(response);
-                    // Application of the Array to the Spinner
 
+                    // adding Array to the  model data
                     for (int i = 0; i < modelDataArrayList.size(); i++){
                         product_group.add(modelDataArrayList.get(i).getproduct_group());
                         literature.add(modelDataArrayList.get(i).getliterature());
                         sample.add(modelDataArrayList.get(i).getsample());
                         gift.add(modelDataArrayList.get(i).getgift());
                     }
-
+//setting simple_spinner_dropdown_item
                     ArrayAdapter<String> spinnerArrayAdapter = new ArrayAdapter<String>(this,   android.R.layout.simple_spinner_item,product_group);
                     spinnerArrayAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item); // The drop down view
                     productGroupSpinner.setAdapter(spinnerArrayAdapter);
@@ -151,37 +154,37 @@ public class MainActivity extends AppCompatActivity{
                     Toast.makeText(MainActivity.this, getErrorCode(response), Toast.LENGTH_SHORT).show();
                 }
         }
-    }
+    }//onTaskCompleted ended
 
     public ArrayList<ModelData> parseInfo(String response) {
         Log.d("response", response);
-        ArrayList<ModelData> tennisModelArrayList = new ArrayList<>();
+        ArrayList<ModelData> allDataArrayList = new ArrayList<>();
         try {
             JSONObject jsonObject = new JSONObject(response);
 
-            // Log.d("gfd", String.valueOf(!jsonObject.getString("status").isEmpty()));
+            // fatching data from parsed json
             JSONArray dataArray1 = jsonObject.getJSONArray("product_group_list");
             JSONArray dataArray2 = jsonObject.getJSONArray("literature_list");
             JSONArray dataArray3 = jsonObject.getJSONArray("physician_sample_list");
             JSONArray dataArray4 = jsonObject.getJSONArray("gift_list");
             Log.d("gfd", String.valueOf(dataArray1));
             for (int i = 0; i < dataArray1.length(); i++) {
-                ModelData playersModel = new ModelData();
-                playersModel.setproduct_group(dataArray1.getJSONObject(i).getString("product_group"));
+                ModelData allData = new ModelData();
+                allData.setproduct_group(dataArray1.getJSONObject(i).getString("product_group"));
                 Log.d("gfd", dataArray1.getJSONObject(i).getString("product_group"));
-                playersModel.setliterature(dataArray2.getJSONObject(i).getString("literature"));
-                playersModel.setsample(dataArray3.getJSONObject(i).getString("sample"));
-                playersModel.setgift(dataArray4.getJSONObject(i).getString("gift"));
+                allData.setliterature(dataArray2.getJSONObject(i).getString("literature"));
+                allData.setsample(dataArray3.getJSONObject(i).getString("sample"));
+                allData.setgift(dataArray4.getJSONObject(i).getString("gift"));
                 Log.d("gfd", dataArray4.getJSONObject(i).getString("gift"));
-                tennisModelArrayList.add(playersModel);
+                allDataArrayList.add(allData);
             }
 
         } catch (JSONException e) {
             e.printStackTrace();
         }
-        return tennisModelArrayList;
+        return allDataArrayList;
     }
-
+//isSuccess is checking weather json data fetching possible or not
     public boolean isSuccess(String response) {
         Log.d("gfd","res:"+ response);
         try {
@@ -203,7 +206,9 @@ public class MainActivity extends AppCompatActivity{
         }
         return false;
     }
-
+//most of the json link has a message object
+//  this json data have no such thing
+// but it does't make any issue, code is working fine
     public String getErrorCode(String response) {
 
         try {
@@ -215,7 +220,7 @@ public class MainActivity extends AppCompatActivity{
         }
         return "No data";
     }
-
+//when every thing worked fine, ProgressDialog removed
     public static void removeSimpleProgressDialog() {
         try {
             if (mProgressDialog != null) {
@@ -233,7 +238,7 @@ public class MainActivity extends AppCompatActivity{
             e.printStackTrace();
         }
     }
-
+//when json not loading in spinner yet!
     public static void showSimpleProgressDialog(Context context, String title,
                                                 String msg, boolean isCancelable) {
         try {
