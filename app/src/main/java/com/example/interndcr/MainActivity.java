@@ -53,9 +53,9 @@ public class MainActivity extends AppCompatActivity{
     private ArrayList<String> literature = new ArrayList<String>();
     private ArrayList<String> sample = new ArrayList<String>();
     private ArrayList<String> gift = new ArrayList<String>();
-    private Spinner spinner;
-    ArrayList<ModelData> tennisModelArrayList = new ArrayList<>();
-    String response2 = "";
+    //private Spinner spinner;
+   // ArrayList<ModelData> tennisModelArrayList = new ArrayList<>();
+   // String response2 = "";
     @Override
     protected void onCreate(Bundle savedInstanceState) {
 
@@ -72,7 +72,7 @@ public class MainActivity extends AppCompatActivity{
         submit.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-
+                Toast.makeText(MainActivity.this, "Done!", Toast.LENGTH_SHORT).show();
             }
         });
     }
@@ -232,7 +232,6 @@ public class MainActivity extends AppCompatActivity{
         } catch (Exception e) {
             e.printStackTrace();
         }
-
     }
 
     public static void showSimpleProgressDialog(Context context, String title,
